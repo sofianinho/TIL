@@ -24,7 +24,7 @@ The `||` in this command would work as follows:
  - If return code of the first part is `0` (also know as `true` for boolean comparisons), that is to say that both files are identitical, then the second part is *not* executed (CA not updated).
  - If the return code for `cmp` is `1` however (AKA `false` in boolean), the second part of the boolean operation is "evaluated", i.e. the `update_ca` function executed. Which is only logical.
 
-The original code inspired by this entry is ![here](https://gitlab.com/gitlab-org/gitlab-ci-multi-runner/raw/master/dockerfiles/ubuntu/entrypoint) (written on January, 17th 2017). 
+The original code inspired by this entry is [here](https://gitlab.com/gitlab-org/gitlab-ci-multi-runner/raw/master/dockerfiles/ubuntu/entrypoint) (written on January, 17th 2017). 
 
 
 
