@@ -1,4 +1,6 @@
 # Digitally sign and verify any file
+## Principle
+![what is it to digitally sign a document ?](https://upload.wikimedia.org/wikipedia/commons/2/2b/Digital_Signature_diagram.svg)
 
 ## Do you already have your certificate ?
 ### Generate a private key and an associated certificate
