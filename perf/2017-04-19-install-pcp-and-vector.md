@@ -52,7 +52,11 @@ sudo service apache2 restart
 
 ## Resources
 [Vector and PCP as used by Netflix](http://techblog.netflix.com/2015/04/introducing-vector-netflixs-on-host.html)
+
 [Redhat (and other)](http://rhelblog.redhat.com/2015/12/18/getting-started-using-performance-co-pilot-and-vector-for-browser-based-metric-visualizations/)
+
 [Vector](http://vectoross.io/)
+
 [PCP](http://pcp.io/documentation.html)
+
 [Linux Perf by Brendan Gregg](http://www.brendangregg.com/linuxperf.html)
