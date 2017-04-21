@@ -1,4 +1,5 @@
 # Performance Co-Pilot and Vector for Browser Based Metric Visualizations installation
+Install PCP on every server you want to observe. Install Vector only once, where it can reach said servers (by IP or hostname). Also make sure appropriate ports are open/forwarded correctly to pmcd and pmwebd services in the servers (default: pmcd:44321, pmwebd:56676).
 
 ## PCP
 ```sh
