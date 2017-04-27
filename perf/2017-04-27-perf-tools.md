@@ -19,5 +19,5 @@ This category includes a set of tools that measure and observe the system during
 - [[4] Linux Systems Performance presentation at the PerconaLive 2016 by Brendan Gregg](https://www.slideshare.net/brendangregg/linux-systems-performance-2016)
 - [[5] Erven Rohou. Tiptop: Hardware Performance Counters for the Masses. [Research Report] RR-7789, INRIA. 2011, pp.23. <hal-00639173>](https://hal.inria.fr/hal-00639173)
 - [[6] Linux Performance counters](https://anton.ozlabs.org/blog/2009/09/04/using-performance-counters-for-linux/)
-- [[7] Linux Enhanced Berkeley Packet Filter (eBPF) and its Compiler Collection (bcc)] (http://www.brendangregg.com/ebpf.html)
+- [[7] Linux Enhanced Berkeley Packet Filter (eBPF) and its Compiler Collection (bcc)](http://www.brendangregg.com/ebpf.html)
 - [[8] BCC installation](https://github.com/iovisor/bcc/blob/master/INSTALL.md)
