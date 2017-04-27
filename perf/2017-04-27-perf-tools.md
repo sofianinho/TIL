@@ -11,6 +11,7 @@ This category includes a set of tools that measure and observe the system during
 ### eBPF and bcc
 `NB.` If the installation of your `bcc-tools` package (e.g. Ubuntu) fails to show the tools, check if the installation directory is outside your `PATH`. On my machine, it put `bcc` in the `/usr/share` directory. If this is the case for you, either add `/usr/share/bcc/tools/` to your `PATH` or move the content to `/usr/local/bin`, for example.
 ### tiptop
+### sysprof
 
 ## References
 - [[1] Linux Performance site by Brendan Gregg](http://www.brendangregg.com/linuxperf.html)
@@ -21,3 +22,4 @@ This category includes a set of tools that measure and observe the system during
 - [[6] Linux Performance counters](https://anton.ozlabs.org/blog/2009/09/04/using-performance-counters-for-linux/)
 - [[7] Linux Enhanced Berkeley Packet Filter (eBPF) and its Compiler Collection (bcc)](http://www.brendangregg.com/ebpf.html)
 - [[8] BCC installation](https://github.com/iovisor/bcc/blob/master/INSTALL.md)
+-[[9] Sysprof (Gnome)](http://sysprof.com/)
