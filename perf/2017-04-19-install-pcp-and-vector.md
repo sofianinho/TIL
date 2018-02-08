@@ -13,9 +13,9 @@ sudo apt-get install -y git build-essential autoconf flex bison qt4-default qt4-
 
 # installing PCP
 cd /tmp
-git clone git://git.pcp.io/pcp
+git clone https://github.com/performancecopilot/pcp
 cd pcp
-./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --with-webapi
 make
 sudo make install
 
