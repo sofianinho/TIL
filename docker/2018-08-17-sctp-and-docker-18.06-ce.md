@@ -98,7 +98,7 @@ docker run -it --network sctp -p 2000:2000/sctp --rm sofianinho/echo-sctp:scratc
 
 ```Sh
 # Client
-docker run -it  --rm sofianinho/echo-sctp:scratch -port 2000 -ip 172.18.0.2
+docker run -it --network sctp --rm sofianinho/echo-sctp:scratch -port 2000 -ip 172.18.0.2
 ```
 - The client exits with the following log:
 ```terminal
@@ -118,12 +118,12 @@ docker network create sctp2 --driver overlay --attachable
 
 ```sh
 # Server
-docker run -it --rm --network sctp3 --ip 10.0.3.3 -p 5201:5201/sctp sofianinho/iperf3:3.6-ubuntu18.04 -s
+docker run -it --rm --network sctp2 --ip 10.0.3.3 -p 5201:5201/sctp sofianinho/iperf3:3.6-ubuntu18.04 -s
 ```
 
 ```sh
 # Client
-docker run -it --rm --network sctp3 sofianinho/iperf3:3.6-ubuntu18.04 -c 10.0.3.3 -p 5201 --sctp --nstreams 4 --len 10k --parallel 4
+docker run -it --rm --network sctp2 sofianinho/iperf3:3.6-ubuntu18.04 -c 10.0.3.3 -p 5201 --sctp --nstreams 4 --len 10k --parallel 4
 ```
 - Does not work with SCTP as shown in the commands. Wireshark shows HEARTBEAT messages, no DATA. Both TCP and UDP work fine
 
