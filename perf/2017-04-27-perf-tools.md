@@ -10,6 +10,20 @@ This category includes a set of tools that measure and observe the system during
 ### perf_events (AKA perf)
 ### eBPF and bcc
 `NB.` If the installation of your `bcc-tools` package (e.g. Ubuntu) fails to show the tools, check if the installation directory is outside your `PATH`. On my machine, it put `bcc` in the `/usr/share` directory. If this is the case for you, either add `/usr/share/bcc/tools/` to your `PATH` or move the content to `/usr/local/bin`, for example.
+I also noticed, as suggested by the kernel versions illustrated by the author in the Figure below, that some utilities of `bcc-tools` failed if you did not have the proper headers of recent Linux versions (beyond 4.8). The tool in question is syscount and the required header was `include/uapi/linux/bpf.h` which was not found on my kernel (I believe it was a 4.4).
+<center><figure><img alt='The full picture.' src='http://brendangregg.com/eBPF/linux_ebpf_support.png'><figcaption><b>3- Linux events and BPF [1].</b></figcaption></figure></center>
+
+
+In order ro install the utilities, your kernel must be compiled with `CONFIG_BPF_SYSCALL=y`. You can see if that's the case using this command:
+```sh
+grep "CONFIG_BPF_SYSCALL" /boot/config-`uname -r`
+```
+#### Some examples
+The full list of examples is available on Brendan Gregg's website. In particular, I liked the following:
+- syscount
+- cachestat/cachetop
+- runqlat
+
 ### tiptop
 ### sysprof
 
