@@ -142,8 +142,12 @@ docker run -it --network sctp2 --ip 10.0.3.4  --rm sofianinho/echo-sctp:scratch 
 
 
 [1] Section Runtime of [changelog for docker 18.03.0](https://docs.docker.com/release-notes/docker-ce/#18030-ce-2018-03-21)
+
 [2] Support SCTP port mapping (bump up API to v1.37) [pull 33922](https://github.com/moby/moby/pull/33922)
+
 [3] Release notes from Docker [18.06.0-ce](https://github.com/docker/docker-ce/releases/tag/v18.06.0-ce)
+
 [4] Docker iperf3 [repo](https://github.com/sofianinho/iperf3-docker)
+
 [5] SCTP library for go [repo](https://github.com/ishidawataru/sctp)
 
