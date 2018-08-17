@@ -26,6 +26,7 @@ COPY --from=0 /go/src/github.com/ishidawataru/sctp/example/example /app/sctp-ech
 
 ENTRYPOINT ["/app/sctp-echo"]
 ```
+The repo for this Dockerfile is here [[6](https://github.com/sofianinho/echo-sctp)]
 
 In order to run it, at least for the server, you should know in advance the ip address the container will be associated with. Typically, by guessing the next one on the subnet (172.17.0.2 if it is the only container, for e.g.). I know it's not ideal, but the objective of this post is beyond that. Know that it is possible to fix ip addresses for overlay networks, but we'll come to that later.
 
@@ -150,4 +151,6 @@ docker run -it --network sctp2 --ip 10.0.3.4  --rm sofianinho/echo-sctp:scratch 
 [4] Docker iperf3 [repo](https://github.com/sofianinho/iperf3-docker)
 
 [5] SCTP library for go [repo](https://github.com/ishidawataru/sctp)
+
+[6] SCTP echo server docker image from [5]. Repo [here](https://github.com/sofianinho/echo-sctp)
 
