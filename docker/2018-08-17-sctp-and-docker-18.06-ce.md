@@ -52,8 +52,8 @@ docker run -it --rm -p 5201:5201/sctp sofianinho/iperf3:3.6-ubuntu18.04 -s
 # client installed on my machine, and another one in an ubuntu VM
 iperf3 -c 172.17.0.2 -p 5201 --sctp -i 1 -t 5  --bandwidth 10G --len 10k  --nstreams 4 --parallel 2
 ```
-- So you see that both of them are reachable from both sides when the client is on my machine; Wireshark capture seems to ok too.
-- For the client inside the VM, TCP and UDP ports are working but not SCTP. Wireshark show hearbeat messages then ABORT in the server interface. In the docker0 interface, INIT and INIT_ACK but no further messsage. This goes on until you stop your client.
+- So you see that both of them are reachable from both sides when the client is on my machine; Wireshark capture seems to be ok too.
+- For the client inside the VM, TCP and UDP ports are working but not SCTP. Wireshark show hearbeat messages then ABORT in the server interface. In the docker0 interface, we see INIT and INIT_ACK but no further messsages. This goes on until you stop your client.
 
 #### With echo-sctp
 ```sh
@@ -64,7 +64,7 @@ docker run -it  -p 2000:2000/sctp --rm sofianinho/echo-sctp:scratch -server -por
 # client on my machine and VM
 ./example -port 2000 -ip 172.17.0.2
 ```
-- Same conclusions: the pings from the client platform (metal or VM) to the server (container) work, but no SCTP message.
+- Same conclusions: the pings from the client (metal or VM) to the server (container) work, but no SCTP messages.
 - Same from the wireshark capture: you see the pings, but the SCTP messages are only INIT and INIT_ACK
 
 ### Both in containers, the network is of type bridge
@@ -87,7 +87,7 @@ docker run -it --rm --network sctp -p 5201:5201/sctp sofianinho/iperf3:3.6-ubunt
 # Client
 docker run -it --rm --network sctp sofianinho/iperf3:3.6-ubuntu18.04 -c 172.18.0.2 -p 5201 --sctp  -i 1 -t 5 --nstreams 2
 ```
-- Does not work and wireshark shows INIT and INIT_ACK messages but no traffic. Both TCP and UDP work fine.
+- Does not work and wireshark shows INIT and INIT_ACK messages but no traffic (no need to expose the sctp port as the traffic is inside the network, I just kept the command as it was above). Both TCP and UDP work fine (ports not exposed, no need, all traffic is inside the network).
 
 
 #### With echo-sctp
@@ -126,7 +126,7 @@ docker run -it --rm --network sctp2 --ip 10.0.3.3 -p 5201:5201/sctp sofianinho/i
 # Client
 docker run -it --rm --network sctp2 sofianinho/iperf3:3.6-ubuntu18.04 -c 10.0.3.3 -p 5201 --sctp --nstreams 4 --len 10k --parallel 4
 ```
-- Does not work with SCTP as shown in the commands. Wireshark shows HEARTBEAT messages, no DATA. Both TCP and UDP work fine
+- Does not work with SCTP with the commands above. Wireshark shows HEARTBEAT messages, no DATA. Both TCP and UDP work fine
 
 #### With echo-sctp
 
@@ -139,7 +139,7 @@ docker run -it --network sctp2 --ip 10.0.3.3  -p 2000:2000/sctp --rm sofianinho/
 docker run -it --network sctp2 --ip 10.0.3.4  --rm sofianinho/echo-sctp:scratch -port 2000 -ip 10.0.3.3
 ```
 
-- Works fine!
+- Works fine! (the only scenario)
 
 
 [1] Section Runtime of [changelog for docker 18.03.0](https://docs.docker.com/release-notes/docker-ce/#18030-ce-2018-03-21)
